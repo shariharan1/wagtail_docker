@@ -1,0 +1,27 @@
+
+services:
+  web:
+    build: .
+    container_name: wagtail_web
+    volumes:
+      - .:/app
+    ports:
+      - "58000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    entrypoint: ["/bin/bash", "/app/entrypoint.sh"]
+
+  db:
+    image: postgres:13
+    container_name: wagtail_db
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "55432:${POSTGRES_PORT}"
+
+volumes:
+  postgres_data:
