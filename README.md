@@ -8,4 +8,4 @@
 - refer to the .env file for the DB properties
 - Website is exposed on port 58000 and DB is exposed on port 55432
 
-- admin user in wagtail is also created with password: password123 
+- admin user in wagtail is also created based on the .env file parameters
