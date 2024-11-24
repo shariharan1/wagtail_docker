@@ -15,14 +15,11 @@ RUN apt-get update && apt-get install -y \
     libwebp-dev \
     && rm -rf /var/lib/apt/lists/*
 
-## pre-reqs.txt just defines the basic wagtail and psycopg (for pgsql) dependencies
-COPY pre-reqs.txt .
-
 ## this file replaces the SQLite references in ./$SITE_NAME/settings/base.py
 COPY replace_sqlite.py .
 
-## install the dependencies and create the web server image!
-RUN pip install --no-cache-dir -r pre-reqs.txt
+## install the dependencies and create the image with wagtail!
+RUN pip install wagtail==6.2.3 "psycopg2>=2.9,<3"
 
 ## Expose port 8000 (Django default)
 EXPOSE 8000

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SITE_NAME="mysite"
-
 # Check if the Wagtail project directory exists
 if [ ! -d "/app/$SITE_NAME" ]; then
     echo "Wagtail project not found. Creating new project..."
@@ -24,7 +22,7 @@ if [ ! -d "/app/$SITE_NAME" ]; then
     
     ## Create a superuser (customize this as needed)
     echo "Creating superuser..."
-    echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'password123')" | python manage.py shell
+    echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('$SITE_ADMIN_USER', '$SITE_ADMIN_USER', '$SITE_ADMIN_PASSWORD')" | python manage.py shell
 fi
 
 ## Start the Django development server in the foreground (important!)
