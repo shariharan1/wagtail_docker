@@ -12,6 +12,7 @@ services:
     env_file:
       - .env
     entrypoint: ["/bin/bash", "/app/entrypoint.sh"]
+    #entrypoint: ["/bin/bash", "/app/entrypoint_newstemplate.sh"]
 
   db:
     image: postgres:13

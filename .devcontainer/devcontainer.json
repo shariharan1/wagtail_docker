@@ -1,0 +1,6 @@
+{
+    "name": "Docker Wagtail Web Workspace",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "web",
+    "workspaceFolder": "/app/mysite"
+}
